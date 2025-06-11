@@ -47,12 +47,6 @@ export function ForumPage() {
               className="text-base font-medium bg-gradient-to-b from-[#ECECFF] to-[#E1E1FE] bg-clip-text text-transparent"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
-              Forum
-            </div>
-            <div
-              className="text-base font-medium bg-gradient-to-b from-[#ECECFF] to-[#E1E1FE] bg-clip-text text-transparent"
-              style={{ fontFamily: "Inter, sans-serif" }}
-            >
               Threads
             </div>
             <div
