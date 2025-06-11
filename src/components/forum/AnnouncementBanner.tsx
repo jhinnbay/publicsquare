@@ -1,3 +1,5 @@
+import React from "react";
+
 export function AnnouncementBanner() {
   return (
     <div className="flex h-[106px] px-4 py-2.5 flex-col justify-center items-start gap-2 border-2 border-[#ABABF9] bg-gradient-to-b from-[#ECECFF] to-[#E1E1FE] rounded-[10px] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)]">
