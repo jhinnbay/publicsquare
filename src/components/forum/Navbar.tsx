@@ -1,3 +1,4 @@
+import React from "react";
 import { MessageCircle, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
