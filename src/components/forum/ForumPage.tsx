@@ -15,8 +15,8 @@ export function ForumPage() {
       <Navbar />
 
       {/* Main Content Container */}
-      <div className="flex px-2.5 items-start gap-2.5 flex-1">
-        <div className="flex px-[18px] py-4 flex-col items-start gap-4 flex-1 rounded-[17px]">
+      <div className="flex px-2.5 items-start gap-2.5 flex-1 w-full">
+        <div className="flex px-[18px] py-4 flex-col items-start gap-4 flex-1 rounded-[17px] w-full">
           {/* Header with Breadcrumb and View Toggle */}
           <div className="flex items-center gap-4 w-full">
             <div className="flex items-center gap-2.5 flex-1">

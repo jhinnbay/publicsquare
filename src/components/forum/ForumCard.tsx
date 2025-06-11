@@ -25,7 +25,7 @@ export function ForumCard({ title, description, badge, icon }: ForumCardProps) {
   };
 
   return (
-    <div className="flex h-[88px] px-8 py-2.5 justify-between items-center border border-[#6B7280] bg-[#111827] bg-blend-color-dodge">
+    <div className="flex h-[88px] px-8 py-2.5 justify-between items-center border border-[#6B7280] bg-[#111827] bg-blend-color-dodge w-full">
       <div className="flex items-center gap-2.5">
         {/* Icon */}
         {icon && <div className="flex-shrink-0">{icon}</div>}
