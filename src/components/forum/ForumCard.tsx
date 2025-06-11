@@ -16,11 +16,11 @@ export function ForumCard({ title, description, badge, icon }: ForumCardProps) {
   const getBadgeClasses = () => {
     switch (badge.variant) {
       case "cyan":
-        return "bg-[#44DFE9] text-[#F9FAFB] border-none";
+        return "bg-[#44DFE9] text-[#F9FAFB] border-none w-full";
       case "default":
-        return "bg-gradient-to-r from-purple-600 to-blue-500 text-white border-none";
+        return "bg-gradient-to-r from-purple-600 to-blue-500 text-white border-none w-[100px]";
       default:
-        return "";
+        return "w-[100px]";
     }
   };
 
@@ -48,9 +48,9 @@ export function ForumCard({ title, description, badge, icon }: ForumCardProps) {
       </div>
 
       {/* Badge */}
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 flex flex-col">
         <Badge
-          className={`h-10 px-4 py-2 rounded-[44px] text-[10px] font-black leading-none ${getBadgeClasses()}`}
+          className={`h-10 px-4 py-2 rounded-[44px] text-[10px] font-black leading-none text-center mx-auto ${getBadgeClasses()}`}
           style={{ fontFamily: "Inter, sans-serif" }}
         >
           {badge.text}
