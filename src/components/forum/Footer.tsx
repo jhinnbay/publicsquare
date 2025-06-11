@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function Footer() {
   return (
-    <div className="flex px-12 py-9 justify-between items-center border-2 border-[#ABABF9] bg-[#2E2D7A] shadow-[0px_6px_15px_-2px_rgba(16,24,40,0.08)]">
+    <div className="flex px-12 py-9 justify-between items-center border-2 border-[#ABABF9] bg-[#2E2D7A] shadow-[0px_6px_15px_-2px_rgba(16,24,40,0.08)] w-full">
       <div className="flex w-[705px] flex-col items-start gap-6">
         <h2 className="text-[46px] font-semibold leading-[57px] tracking-[-0.92px] bg-gradient-to-b from-[#ECECFF] to-[#E1E1FE] bg-clip-text text-transparent font-sf-pro">
           Get involved and shape Public Square's future.
