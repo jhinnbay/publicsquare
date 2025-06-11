@@ -18,6 +18,19 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        "space-grotesk": ["Space Grotesk", "sans-serif"],
+        "dm-sans": ["DM Sans", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        "sf-pro": [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "SF Pro Display",
+          "SF Pro Text",
+          "system-ui",
+          "sans-serif",
+        ],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
