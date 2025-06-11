@@ -1,22 +1,5 @@
 import React from "react";
 import { PrivyProvider as PrivyProviderBase } from "@privy-io/react-auth";
-import { WagmiProvider } from "@privy-io/wagmi-connector";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { http } from "viem";
-import { mainnet, polygon, arbitrum, base } from "viem/chains";
-import { createConfig } from "wagmi";
-
-const wagmiConfig = createConfig({
-  chains: [mainnet, polygon, arbitrum, base],
-  transports: {
-    [mainnet.id]: http(),
-    [polygon.id]: http(),
-    [arbitrum.id]: http(),
-    [base.id]: http(),
-  },
-});
-
-const queryClient = new QueryClient();
 
 interface PrivyProviderProps {
   children: React.ReactNode;
@@ -25,22 +8,42 @@ interface PrivyProviderProps {
 export function PrivyProvider({ children }: PrivyProviderProps) {
   return (
     <PrivyProviderBase
-      appId={import.meta.env.VITE_PRIVY_APP_ID || "your-privy-app-id"}
+      appId={import.meta.env.VITE_PRIVY_APP_ID || "clvqfm1xy00ow13zrfsr3nzpz"}
       config={{
         loginMethods: ["wallet", "email", "sms"],
         appearance: {
           theme: "dark",
           accentColor: "#4158ED",
-          logo: "https://your-logo-url.com/logo.png",
+          logo: "https://auth.privy.io/logos/privy-logo.png",
         },
         embeddedWallets: {
           createOnLogin: "users-without-wallets",
         },
+        supportedChains: [
+          {
+            id: 1,
+            name: "Ethereum",
+            nativeCurrency: {
+              name: "Ether",
+              symbol: "ETH",
+              decimals: 18,
+            },
+            rpcUrls: {
+              default: {
+                http: ["https://eth.llamarpc.com"],
+              },
+            },
+            blockExplorers: {
+              default: {
+                name: "Etherscan",
+                url: "https://etherscan.io",
+              },
+            },
+          },
+        ],
       }}
     >
-      <QueryClientProvider client={queryClient}>
-        <WagmiProvider config={wagmiConfig}>{children}</WagmiProvider>
-      </QueryClientProvider>
+      {children}
     </PrivyProviderBase>
   );
 }

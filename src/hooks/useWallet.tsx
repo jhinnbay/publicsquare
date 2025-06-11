@@ -18,8 +18,20 @@ export function useWallet() {
   };
 
   const getWalletAddress = () => {
-    if (!user?.wallet?.address) return null;
-    return user.wallet.address;
+    // Check for linked wallets first, then embedded wallet
+    const linkedWallet = user?.linkedAccounts?.find(
+      (account) => account.type === "wallet",
+    );
+    if (linkedWallet && "address" in linkedWallet) {
+      return linkedWallet.address;
+    }
+
+    // Check for embedded wallet
+    if (user?.wallet?.address) {
+      return user.wallet.address;
+    }
+
+    return null;
   };
 
   const getFormattedAddress = () => {
@@ -38,6 +50,6 @@ export function useWallet() {
     unlinkWallet,
     walletAddress: getWalletAddress(),
     formattedAddress: getFormattedAddress(),
-    isConnected: authenticated && !!user?.wallet?.address,
+    isConnected: authenticated && !!getWalletAddress(),
   };
 }
