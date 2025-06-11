@@ -2,7 +2,7 @@ import React from "react";
 
 export function InviteBanner() {
   return (
-    <div className="flex h-auto px-2.5 py-2.5 justify-center items-center gap-4 border-2 border-purple-500 bg-[#2E2D7A] rounded-[10px] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)] w-full flex-grow-0">
+    <div className="flex h-auto px-2.5 py-2.5 justify-center items-center gap-4 border-2 border-purple-500 bg-[#2E2D7A] rounded-[10px] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)] w-auto flex-grow-0 self-stretch mx-5">
       <div className="text-center flex flex-col gap-[7px] h-auto self-center">
         <span
           className="text-lg font-bold text-white"
