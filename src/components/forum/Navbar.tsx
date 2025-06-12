@@ -1,6 +1,12 @@
 import React from "react";
 import { MessageCircle, Wallet } from "lucide-react";
 import { ConnectWalletButton } from "./ConnectWalletButton";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function Navbar() {
   return (
@@ -26,17 +32,35 @@ export function Navbar() {
 
           <div className="flex items-center gap-3">
             {/* Message Icon */}
-            <div className="flex w-[37px] h-[37px] p-2.5 justify-center items-center gap-2.5 rounded-xl border border-white bg-[#FF26DC] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)]">
-              <div className="relative">
-                <MessageCircle className="w-5 h-5 text-white" />
-                <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#FFDB1E] rounded-full"></div>
-              </div>
-            </div>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="flex w-[37px] h-[37px] p-2.5 justify-center items-center gap-2.5 rounded-xl border border-white bg-[#FF26DC] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)] cursor-pointer hover:bg-[#FF26DC]/90 transition-colors">
+                    <div className="relative">
+                      <MessageCircle className="w-5 h-5 text-white" />
+                      <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#FFDB1E] rounded-full"></div>
+                    </div>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Coming soon</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
 
             {/* Wallet Icon */}
-            <div className="flex w-[37px] h-[37px] p-2.5 justify-center items-center gap-2.5 rounded-xl border border-white bg-[#27BBFB] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)]">
-              <Wallet className="w-5 h-5 text-white" />
-            </div>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="flex w-[37px] h-[37px] p-2.5 justify-center items-center gap-2.5 rounded-xl border border-white bg-[#27BBFB] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)] cursor-pointer hover:bg-[#27BBFB]/90 transition-colors">
+                    <Wallet className="w-5 h-5 text-white" />
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Coming soon</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       </div>
