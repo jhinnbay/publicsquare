@@ -9,69 +9,162 @@ export function PixelIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M15.625 1.5625V0H34.375V1.5625H15.625Z" fill="black" />
-      <path d="M37.5 3.125H34.375V1.5625H37.5V3.125Z" fill="black" />
-      <path
-        d="M42.1875 6.25H39.0625V4.6875H37.5V3.125H40.625V4.6875H42.1875V6.25Z"
-        fill="black"
-      />
-      <path d="M43.75 7.8125H42.1875V6.25H43.75V7.8125Z" fill="black" />
-      <path
-        d="M46.875 12.5H45.3125V10.9375H43.75V7.8125H45.3125V9.375H46.875V12.5Z"
-        fill="black"
-      />
-      <path d="M48.4375 15.625H46.875V12.5H48.4375V15.625Z" fill="black" />
-      <path d="M48.4375 34.375V15.625H50V34.375H48.4375Z" fill="black" />
-      <path d="M46.875 37.5V34.375H48.4375V37.5H46.875Z" fill="black" />
-      <path
-        d="M43.75 42.1875V39.0625H45.3125V37.5H46.875V40.625H45.3125V42.1875H43.75Z"
-        fill="black"
-      />
-      <path d="M42.1875 43.75V42.1875H43.75V43.75H42.1875Z" fill="black" />
-      <path
-        d="M37.5 46.875V45.3125H39.0625V43.75H42.1875V45.3125H40.625V46.875H37.5Z"
-        fill="black"
-      />
-      <path d="M34.375 48.4375V46.875H37.5V48.4375H34.375Z" fill="black" />
-      <path d="M15.625 48.4375H34.375V50H15.625V48.4375Z" fill="black" />
-      <path d="M12.5 46.875H15.625V48.4375H12.5V46.875Z" fill="black" />
-      <path
-        d="M7.8125 43.75H10.9375V45.3125H12.5V46.875H9.375V45.3125H7.8125V43.75Z"
-        fill="black"
-      />
-      <path d="M6.25 42.1875H7.8125V43.75H6.25V42.1875Z" fill="black" />
-      <path
-        d="M3.125 37.5H4.6875V39.0625H6.25V42.1875H4.6875V40.625H3.125V37.5Z"
-        fill="black"
-      />
-      <path d="M1.5625 34.375H3.125V37.5H1.5625V34.375Z" fill="black" />
-      <path d="M1.5625 15.625V34.375H0V15.625H1.5625Z" fill="black" />
-      <path d="M3.125 12.5V15.625H1.5625V12.5H3.125Z" fill="black" />
-      <path
-        d="M6.25 7.8125V10.9375H4.6875V12.5H3.125V9.375H4.6875V7.8125H6.25Z"
-        fill="black"
-      />
-      <path d="M7.8125 6.25V7.8125H6.25V6.25H7.8125Z" fill="black" />
-      <path
-        d="M12.5 3.125V4.6875H10.9375V6.25H7.8125V4.6875H9.375V3.125H12.5Z"
-        fill="black"
-      />
-      <path d="M12.5 3.125H15.625V1.5625H12.5V3.125Z" fill="black" />
-      <path
-        d="M34.375 3.125V1.5625H15.625V3.125H12.5V4.6875H10.9375V6.25H7.8125V7.8125H6.25V10.9375H4.6875V12.5H3.125V15.625H1.5625V34.375H3.125V37.5H4.6875V39.0625H6.25V42.1875H7.8125V43.75H10.9375V45.3125H12.5V46.875H15.625V48.4375H34.375V46.875H37.5V45.3125H39.0625V43.75H42.1875V42.1875H43.75V39.0625H45.3125V37.5H46.875V34.375H48.4375V15.625H46.875V12.5H45.3125V10.9375H43.75V7.8125H42.1875V6.25H39.0625V4.6875H37.5V3.125H34.375Z"
-        fill="url(#pattern0)"
-        fillOpacity="0.8"
-      />
       <defs>
-        <pattern
-          id="pattern0"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <rect width="1" height="1" fill="#4F46E5" />
-        </pattern>
+        <radialGradient id="starGradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FFD700" />
+          <stop offset="30%" stopColor="#FFA500" />
+          <stop offset="100%" stopColor="#FF8C00" />
+        </radialGradient>
+        <linearGradient id="rayGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00FFFF" />
+          <stop offset="100%" stopColor="#87CEEB" />
+        </linearGradient>
+        <linearGradient id="rayGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00FF7F" />
+          <stop offset="100%" stopColor="#90EE90" />
+        </linearGradient>
       </defs>
+
+      {/* Outer border/container */}
+      <polygon
+        points="25,2 32,8 42,6 40,16 48,20 40,24 42,34 32,32 25,38 18,32 8,34 10,24 2,20 10,16 8,6 18,8"
+        fill="#E6E6FA"
+        stroke="#D8BFD8"
+        strokeWidth="1"
+        opacity="0.8"
+      />
+
+      {/* Alternating rays - cyan/blue */}
+      <polygon
+        points="25,25 25,5 28,12"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 35,10 32,15"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 40,15 37,20"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 45,25 38,25"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 40,35 37,30"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 35,40 32,35"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 25,45 22,38"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 15,40 18,35"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 10,35 13,30"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 5,25 12,25"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 10,15 13,20"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 15,10 18,15"
+        fill="url(#rayGradient1)"
+        opacity="0.7"
+      />
+
+      {/* Alternating rays - green */}
+      <polygon
+        points="25,25 30,7 27,13"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 38,12 35,17"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 43,20 40,23"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 43,30 40,27"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 38,38 35,33"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 30,43 27,37"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 20,43 23,37"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 12,38 15,33"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 7,30 10,27"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 7,20 10,23"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 12,12 15,17"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+      <polygon
+        points="25,25 20,7 23,13"
+        fill="url(#rayGradient2)"
+        opacity="0.7"
+      />
+
+      {/* Central star */}
+      <polygon
+        points="25,15 27,21 33,21 28,25 30,31 25,27 20,31 22,25 17,21 23,21"
+        fill="url(#starGradient)"
+        stroke="#FFD700"
+        strokeWidth="0.5"
+      />
     </svg>
   );
 }
