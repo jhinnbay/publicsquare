@@ -1,4 +1,5 @@
 import React from "react";
+import { usePrivy, useWallets } from "@privy-io/react-auth";
 
 export function useWallet() {
   // Check if Privy is properly configured
@@ -47,12 +48,11 @@ export function useWallet() {
     };
   }
 
-  // Only try to use Privy hooks if we have a valid app ID
+  // Use Privy hooks directly since we have a valid app ID
   let privyHooks;
   let walletsHook;
 
   try {
-    const { usePrivy, useWallets } = require("@privy-io/react-auth");
     privyHooks = usePrivy();
     walletsHook = useWallets();
   } catch (error) {

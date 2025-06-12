@@ -1,4 +1,5 @@
 import React from "react";
+import { PrivyProvider as BasePrivyProvider } from "@privy-io/react-auth";
 
 interface PrivyProviderProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
     privyAppId !== "your-privy-app-id" &&
     (privyAppId.startsWith("clp") || privyAppId.startsWith("cmb")) &&
     privyAppId.length > 10;
+
   // If no valid app ID, just return children without Privy wrapper
   if (!isValidAppId) {
     console.warn(
@@ -24,9 +26,6 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
     );
     return <>{children}</>;
   }
-
-  // Only import Privy when we have a valid app ID
-  const { PrivyProvider: BasePrivyProvider } = require("@privy-io/react-auth");
 
   return (
     <BasePrivyProvider
