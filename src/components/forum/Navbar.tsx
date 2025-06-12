@@ -28,8 +28,12 @@ export function Navbar() {
           {/* Brand and Navigation */}
           <div className="flex items-center gap-10 px-1">
             <h1
-              className="text-[32px] font-bold leading-[22px] bg-gradient-to-r from-[#CF57DC] to-[#83BCF3] bg-clip-text text-transparent"
-              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+              className="text-[32px] font-bold leading-[22px] bg-gradient-to-r from-[#CF57DC] to-[#83BCF3] bg-clip-text text-transparent h-auto self-center my-2 py-2"
+              style={{
+                fontFamily: "Space Grotesk, sans-serif",
+                marginTop: "8px",
+                marginBottom: "auto",
+              }}
             >
               Public.Square
             </h1>

@@ -2,7 +2,7 @@ import React from "react";
 
 export function AnnouncementBanner() {
   return (
-    <div className="flex h-auto px-4 py-2.5 flex-col justify-center items-start gap-2 border-2 border-[#ABABF9] bg-gradient-to-b from-[#ECECFF] to-[#E1E1FE] rounded-[10px] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)] flex-grow-0 mx-5 w-full self-center">
+    <div className="flex h-auto px-4 py-2.5 flex-col justify-start items-start gap-2 border-2 border-[#ABABF9] bg-gradient-to-b from-[#ECECFF] to-[#E1E1FE] rounded-[10px] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)] flex-grow-0 mx-5 w-full self-center">
       <h3
         className="text-lg font-bold text-black"
         style={{ fontFamily: "Space Grotesk, sans-serif" }}
