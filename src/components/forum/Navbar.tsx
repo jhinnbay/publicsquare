@@ -1,21 +1,8 @@
 import React from "react";
-import { MessageCircle, Wallet, LogOut } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useWallet } from "@/hooks/useWallet";
+import { MessageCircle, Wallet } from "lucide-react";
+import { ConnectWalletButton } from "./ConnectWalletButton";
 
 export function Navbar() {
-  const { ready, isConnected, formattedAddress, login, logout } = useWallet();
-
-  const handleConnect = () => {
-    if (!ready) return;
-
-    if (isConnected) {
-      logout();
-    } else {
-      login();
-    }
-  };
-
   return (
     <div className="flex h-[100px] px-8 py-2.5 justify-between items-center bg-gradient-to-r from-[#264EA4] via-[#4158ED] via-[#297FE8] via-[#2246BC] to-[#181862] rounded-b-3xl border-x border-b border-[#44DFE9]">
       {/* Logo and Brand */}
@@ -55,23 +42,7 @@ export function Navbar() {
       </div>
 
       {/* Connect Wallet Button */}
-      <Button
-        onClick={handleConnect}
-        disabled={!ready}
-        className="h-[58px] px-8 py-3 gap-2 rounded-lg border-2 border-white bg-gradient-to-r from-purple-600 to-blue-500 shadow-[0px_4px_0px_0px_#000] hover:shadow-[0px_2px_0px_0px_#000] hover:translate-y-0.5 transition-all text-white text-lg font-medium disabled:opacity-50"
-        style={{ fontFamily: "DM Sans, sans-serif" }}
-      >
-        {!ready ? (
-          "Loading..."
-        ) : isConnected ? (
-          <div className="flex items-center gap-2">
-            <span>{formattedAddress}</span>
-            <LogOut className="w-4 h-4" />
-          </div>
-        ) : (
-          "Connect Wallet"
-        )}
-      </Button>
+      <ConnectWalletButton />
     </div>
   );
 }
