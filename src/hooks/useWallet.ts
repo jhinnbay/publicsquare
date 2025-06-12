@@ -1,22 +1,43 @@
-import { usePrivy, useWallets } from "@privy-io/react-auth";
+import React from "react";
+
+// Check if Privy is properly configured
+const privyAppId = import.meta.env.VITE_PRIVY_APP_ID;
+const isValidAppId =
+  privyAppId &&
+  privyAppId !== "your-privy-app-id" &&
+  privyAppId.startsWith("clp") &&
+  privyAppId.length > 10;
+
+// Only import Privy hooks if we have a valid app ID
+let usePrivy: any, useWallets: any;
+
+if (isValidAppId) {
+  try {
+    const privyAuth = require("@privy-io/react-auth");
+    usePrivy = privyAuth.usePrivy;
+    useWallets = privyAuth.useWallets;
+  } catch (error) {
+    console.warn("Failed to load Privy hooks:", error);
+  }
+}
 
 export function useWallet() {
-  // Check if Privy is properly configured
-  const privyAppId = import.meta.env.VITE_PRIVY_APP_ID;
-  const isValidAppId =
-    privyAppId &&
-    privyAppId !== "your-privy-app-id" &&
-    privyAppId.startsWith("clp") &&
-    privyAppId.length > 10;
-
   let privyHooks;
   let walletsHook;
 
-  try {
-    privyHooks = usePrivy();
-    walletsHook = useWallets();
-  } catch (error) {
-    // If Privy hooks fail, provide mock values
+  if (isValidAppId && usePrivy && useWallets) {
+    try {
+      privyHooks = usePrivy();
+      walletsHook = useWallets();
+    } catch (error) {
+      console.warn("Privy hooks failed:", error);
+      privyHooks = null;
+      walletsHook = null;
+    }
+  }
+
+  // Use mock values if Privy is not configured or failed
+  if (!privyHooks || !walletsHook) {
     privyHooks = {
       ready: true,
       authenticated: false,
