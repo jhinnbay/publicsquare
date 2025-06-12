@@ -1,58 +1,84 @@
 import React from "react";
 
-// Check if Privy is properly configured
-const privyAppId = import.meta.env.VITE_PRIVY_APP_ID;
-const isValidAppId =
-  privyAppId &&
-  privyAppId !== "your-privy-app-id" &&
-  privyAppId.startsWith("clp") &&
-  privyAppId.length > 10;
-
-// Only import Privy hooks if we have a valid app ID
-let usePrivy: any, useWallets: any;
-
-if (isValidAppId) {
-  try {
-    const privyAuth = require("@privy-io/react-auth");
-    usePrivy = privyAuth.usePrivy;
-    useWallets = privyAuth.useWallets;
-  } catch (error) {
-    console.warn("Failed to load Privy hooks:", error);
-  }
-}
-
 export function useWallet() {
-  let privyHooks;
-  let walletsHook;
+  // Check if Privy is properly configured
+  const privyAppId = import.meta.env.VITE_PRIVY_APP_ID;
+  const isValidAppId =
+    privyAppId &&
+    privyAppId !== "your-privy-app-id" &&
+    privyAppId.startsWith("clp") &&
+    privyAppId.length > 10;
 
-  if (isValidAppId && usePrivy && useWallets) {
-    try {
-      privyHooks = usePrivy();
-      walletsHook = useWallets();
-    } catch (error) {
-      console.warn("Privy hooks failed:", error);
-      privyHooks = null;
-      walletsHook = null;
-    }
-  }
+  // If Privy is not configured, return mock values immediately
+  if (!isValidAppId) {
+    const mockLogin = async () => {
+      console.warn(
+        "Privy not configured. Please set VITE_PRIVY_APP_ID environment variable.",
+      );
+      alert(
+        "🔧 Development Mode\n\n" +
+          "Wallet functionality is disabled because Privy is not configured.\n\n" +
+          "To enable wallet connections:\n" +
+          "1. Sign up at https://privy.io/\n" +
+          "2. Create a new app\n" +
+          "3. Add VITE_PRIVY_APP_ID=your-app-id to your .env file\n" +
+          "4. Restart the dev server",
+      );
+    };
 
-  // Use mock values if Privy is not configured or failed
-  if (!privyHooks || !walletsHook) {
-    privyHooks = {
+    return {
       ready: true,
       authenticated: false,
       user: null,
-      login: async () => {
-        console.warn(
-          "Privy not configured. Please set VITE_PRIVY_APP_ID environment variable.",
-        );
-      },
+      wallets: [],
+      connectedWallet: null,
+      embeddedWallet: null,
+      coinbaseWallet: null,
+      isConnected: false,
+      address: null,
+      formattedAddress: null,
+      connectWallet: mockLogin,
+      disconnectWallet: async () => {},
+      login: mockLogin,
       logout: async () => {},
       linkWallet: async () => {},
       unlinkWallet: async () => {},
       createWallet: async () => {},
     };
-    walletsHook = { wallets: [] };
+  }
+
+  // Only try to use Privy hooks if we have a valid app ID
+  let privyHooks;
+  let walletsHook;
+
+  try {
+    const { usePrivy, useWallets } = require("@privy-io/react-auth");
+    privyHooks = usePrivy();
+    walletsHook = useWallets();
+  } catch (error) {
+    console.error("Failed to initialize Privy hooks:", error);
+    // Fallback to mock if Privy fails
+    return {
+      ready: true,
+      authenticated: false,
+      user: null,
+      wallets: [],
+      connectedWallet: null,
+      embeddedWallet: null,
+      coinbaseWallet: null,
+      isConnected: false,
+      address: null,
+      formattedAddress: null,
+      connectWallet: async () => {
+        console.error("Privy initialization failed");
+      },
+      disconnectWallet: async () => {},
+      login: async () => {},
+      logout: async () => {},
+      linkWallet: async () => {},
+      unlinkWallet: async () => {},
+      createWallet: async () => {},
+    };
   }
 
   const {
@@ -68,14 +94,14 @@ export function useWallet() {
 
   const { wallets } = walletsHook;
 
-  const connectedWallet = wallets.find(
-    (wallet) => wallet.connectorType !== "unknown",
+  const connectedWallet = wallets?.find(
+    (wallet: any) => wallet.connectorType !== "unknown",
   );
-  const embeddedWallet = wallets.find(
-    (wallet) => wallet.walletClientType === "privy",
+  const embeddedWallet = wallets?.find(
+    (wallet: any) => wallet.walletClientType === "privy",
   );
-  const coinbaseWallet = wallets.find(
-    (wallet) => wallet.walletClientType === "coinbase_wallet",
+  const coinbaseWallet = wallets?.find(
+    (wallet: any) => wallet.walletClientType === "coinbase_wallet",
   );
 
   const connectWallet = async () => {
@@ -84,7 +110,7 @@ export function useWallet() {
       await login();
     } else {
       // If user is authenticated but has no wallet, create one
-      if (wallets.length === 0) {
+      if (wallets?.length === 0) {
         await createWallet();
       } else {
         // Link additional wallet
@@ -116,11 +142,11 @@ export function useWallet() {
     ready,
     authenticated,
     user,
-    wallets,
+    wallets: wallets || [],
     connectedWallet,
     embeddedWallet,
     coinbaseWallet,
-    isConnected: authenticated && wallets.length > 0,
+    isConnected: authenticated && (wallets?.length || 0) > 0,
     address: getDisplayAddress(),
     formattedAddress: getDisplayAddress()
       ? formatAddress(getDisplayAddress()!)
