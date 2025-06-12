@@ -17,7 +17,7 @@ export function ConnectWalletButton() {
   const isValidAppId =
     privyAppId &&
     privyAppId !== "your-privy-app-id" &&
-    privyAppId.startsWith("clp") &&
+    (privyAppId.startsWith("clp") || privyAppId.startsWith("cmb")) &&
     privyAppId.length > 10;
 
   if (!ready) {

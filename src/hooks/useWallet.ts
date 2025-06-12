@@ -6,7 +6,7 @@ export function useWallet() {
   const isValidAppId =
     privyAppId &&
     privyAppId !== "your-privy-app-id" &&
-    privyAppId.startsWith("clp") &&
+    (privyAppId.startsWith("clp") || privyAppId.startsWith("cmb")) &&
     privyAppId.length > 10;
 
   // If Privy is not configured, return mock values immediately

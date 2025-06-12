@@ -11,9 +11,8 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
   const isValidAppId =
     privyAppId &&
     privyAppId !== "your-privy-app-id" &&
-    privyAppId.startsWith("clp") &&
+    (privyAppId.startsWith("clp") || privyAppId.startsWith("cmb")) &&
     privyAppId.length > 10;
-
   // If no valid app ID, just return children without Privy wrapper
   if (!isValidAppId) {
     console.warn(
