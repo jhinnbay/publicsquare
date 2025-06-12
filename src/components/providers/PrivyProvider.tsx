@@ -5,10 +5,66 @@ interface PrivyProviderProps {
   children: React.ReactNode;
 }
 
+// Mock context for development when Privy is not configured
+const MockPrivyContext = React.createContext({
+  ready: true,
+  authenticated: false,
+  user: null,
+  login: async () => {},
+  logout: async () => {},
+  linkWallet: async () => {},
+  unlinkWallet: async () => {},
+  createWallet: async () => {},
+});
+
+function MockPrivyProvider({ children }: PrivyProviderProps) {
+  return (
+    <MockPrivyContext.Provider
+      value={{
+        ready: true,
+        authenticated: false,
+        user: null,
+        login: async () => {
+          console.warn(
+            "Privy not configured. Please set VITE_PRIVY_APP_ID environment variable.",
+          );
+        },
+        logout: async () => {},
+        linkWallet: async () => {},
+        unlinkWallet: async () => {},
+        createWallet: async () => {},
+      }}
+    >
+      {children}
+    </MockPrivyContext.Provider>
+  );
+}
+
 export function PrivyProvider({ children }: PrivyProviderProps) {
+  const privyAppId = import.meta.env.VITE_PRIVY_APP_ID;
+
+  // Check if we have a valid Privy app ID
+  const isValidAppId =
+    privyAppId &&
+    privyAppId !== "your-privy-app-id" &&
+    privyAppId.startsWith("clp") &&
+    privyAppId.length > 10;
+
+  // If no valid app ID, use mock provider for development
+  if (!isValidAppId) {
+    console.warn(
+      "⚠️ Privy not configured properly. Using mock provider for development.\n" +
+        "To enable wallet functionality:\n" +
+        "1. Sign up at https://privy.io/\n" +
+        "2. Create a new app\n" +
+        "3. Add VITE_PRIVY_APP_ID=your-app-id to your .env file",
+    );
+    return <MockPrivyProvider>{children}</MockPrivyProvider>;
+  }
+
   return (
     <BasePrivyProvider
-      appId={import.meta.env.VITE_PRIVY_APP_ID || "your-privy-app-id"}
+      appId={privyAppId}
       config={{
         // Display email and wallet as login methods
         loginMethods: ["email", "wallet", "sms"],

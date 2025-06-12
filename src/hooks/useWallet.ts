@@ -1,6 +1,39 @@
 import { usePrivy, useWallets } from "@privy-io/react-auth";
 
 export function useWallet() {
+  // Check if Privy is properly configured
+  const privyAppId = import.meta.env.VITE_PRIVY_APP_ID;
+  const isValidAppId =
+    privyAppId &&
+    privyAppId !== "your-privy-app-id" &&
+    privyAppId.startsWith("clp") &&
+    privyAppId.length > 10;
+
+  let privyHooks;
+  let walletsHook;
+
+  try {
+    privyHooks = usePrivy();
+    walletsHook = useWallets();
+  } catch (error) {
+    // If Privy hooks fail, provide mock values
+    privyHooks = {
+      ready: true,
+      authenticated: false,
+      user: null,
+      login: async () => {
+        console.warn(
+          "Privy not configured. Please set VITE_PRIVY_APP_ID environment variable.",
+        );
+      },
+      logout: async () => {},
+      linkWallet: async () => {},
+      unlinkWallet: async () => {},
+      createWallet: async () => {},
+    };
+    walletsHook = { wallets: [] };
+  }
+
   const {
     ready,
     authenticated,
@@ -10,9 +43,9 @@ export function useWallet() {
     linkWallet,
     unlinkWallet,
     createWallet,
-  } = usePrivy();
+  } = privyHooks;
 
-  const { wallets } = useWallets();
+  const { wallets } = walletsHook;
 
   const connectedWallet = wallets.find(
     (wallet) => wallet.connectorType !== "unknown",
