@@ -2,110 +2,12 @@ import React from "react";
 
 export function PixelIcon() {
   return (
-    <svg
+    <img
+      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9ImJnIiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkFGQUZGIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0M4QkZGRiIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImN5YW4iIHgxPSI1MCUiIHkxPSI1MCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjQzBGOEZGIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwRkZGRiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyZWVuIiB4MT0iNTAlIiB5MT0iNTAlIiB4Mj0iMTAwJSIgeTI9IjAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0M4RkZDOCIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMEZGN0YiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJzdGFyIiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkZGRjAwIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGQTUwMCIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+Cjxwb2x5Z29uIHBvaW50cz0iNTAsNSA2Myw5IDc0LDE4IDgyLDMwIDg3LDQ0IDkwLDUwIDg3LDU2IDgyLDcwIDc0LDgyIDYzLDkxIDUwLDk1IDM3LDkxIDI2LDgyIDE4LDcwIDEzLDU2IDEwLDUwIDEzLDQ0IDE4LDMwIDI2LDE4IDM3LDkiIGZpbGw9InVybCgjYmcpIiBzdHJva2U9IiNBNTk0RDkiLz4KPHBhdGggZD0iTTUwLDUwIEw1MCw5IEw1Niw5IEw1NCwzOCBMNDYsMzggWiIgZmlsbD0idXJsKCNjeWFuKSIgb3BhY2l0eT0iMC44Ii8+CjxwYXRoIGQ9Ik01MCw1MCBMODY1IDkxIEw5MSw4NSBMNjUsMzggTDQ2LDMyIFoiIGZpbGw9InVybCgjZ3JlZW4pIiBvcGFjaXR5PSIwLjgiLz4KPHBhdGggZD0iTTUwLDUwIEw5MSw1MCBMOTE0NiBMNjUsMTIgTDY1LDM4IFoiIGZpbGw9InVybCgjY3lhbikiIG9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNNTAsNTAgTDg2LDkxIEw4MCw5NCBMNTW5MzggTDQ2LDY4IFoiIGZpbGw9InVybCgjZ3JlZW4pIiBvcGFjaXR5PSIwLjgiLz4KPHBhdGggZD0iTTUwLDUwIEw1MCw5MSBMNDQSOTE1IDQ2LDYyIEw1NCw2MiBaIiBmaWxsPSJ1cmwoI2N5YW4pIiBvcGFjaXR5PSIwLjgiLz4KPHBhdGggZD0iTTUwLDUwIEwxNCw5MSBMMTISODE1IDM1LDY4IEw1NGQ4IFoiIGZpbGw9InVybCgjZ3JlZW4pIiBvcGFjaXR5PSIwLjgiLz4KPHBhdGggZD0iTTUwLDUwIEw5LDUwIEw5LDQ0IEwzNSw0NiBMMzUsNTQgWiIgZmlsbD0idXJsKCNjeWFuKSIgb3BhY2l0eT0iMC44Ii8+CjxwYXRoIGQ9Ik01MCw1MCBMMUQ5IEwxNSw2IEwzNSwyNyBMNTQsMjcgWiIgZmlsbD0idXJsKCNncmVlbikiIG9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNNTAsNTAgTDYzLDYgTDc0LDE4IEw2MCwzNSBMNTQsMzIgWiIgZmlsbD0idXJsKCNjeWFuKSIgb3BhY2l0eT0iMC44Ii8+CjxwYXRoIGQ9Ik01MCw1MCBMODU2IDE4IEw4Miw5MCBMNTW5MzQgTDUyLDM4IFoiIGZpbGw9InVybCgjZ3JlZW4pIiBvcGFjaXR5PSIwLjgiLz4KPHBhdGggZD0iTTUwLDUwIEw4Miw3MCBMOWA5NCBMNTUsNjYgTDUyLDYyIFoiIGZpbGw9InVybCgjY3lhbikiIG9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNNTAsNTAgTDM3LDkxIEwyNiw4MCBMNDAYSA2IGBMNDgsNjIgWiIgZmlsbD0idXJsKCNncmVlbikiIG9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNNTAsNTAgTDE4LDcwIEwxMyw1NiBMMzUsNDYgTDM1LDU0IFoiIGZpbGw9InVybCgjY3lhbikiIG9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNNTAsNTAgTDEzLDQ0IEwxOCWzMCBMMzUsNDAgTDQ2LDM4IFoiIGZpbGw9InVybCojZ3JlZW4pIiBvcGFjaXR5PSIwLjgiLz4KPHBhdGggZD0iTTUwLDUwIEwyNiwxOCBMMzcpNyBMNDYsNTcgTDUwLDUwIFoiIGZpbGw9InVybCgjY3lhbikiIG9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNNTAsNTAgTDM3OTOGM3N4LDE0IEw0ODM0IQW==",
+      alt="Crystal Star Icon"
       width="50"
       height="50"
-      viewBox="0 0 50 50"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <radialGradient id="crystalBase" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#F0EFFF" />
-          <stop offset="60%" stopColor="#D8D0FF" />
-          <stop offset="100%" stopColor="#B8A5FF" />
-        </radialGradient>
-        <linearGradient id="cyanCut" x1="50%" y1="50%" x2="85%" y2="15%">
-          <stop offset="30%" stopColor="#E0F8FF" />
-          <stop offset="100%" stopColor="#00CED1" />
-        </linearGradient>
-        <linearGradient id="greenCut" x1="50%" y1="50%" x2="85%" y2="15%">
-          <stop offset="30%" stopColor="#E0FFE0" />
-          <stop offset="100%" stopColor="#32CD32" />
-        </linearGradient>
-        <radialGradient id="goldStar" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="#FFFF66" />
-          <stop offset="70%" stopColor="#FFD700" />
-          <stop offset="100%" stopColor="#DAA520" />
-        </radialGradient>
-      </defs>
-
-      {/* 20-sided polygon crystal outline */}
-      <path
-        d="M25,1.5 L28,2.5 L31,4.5 L34,7 L37,10 L39.5,13.5 L41.5,17 L43,20.5 L44,23.5 L44.5,25 L44,26.5 L43,29.5 L41.5,33 L39.5,36.5 L37,40 L34,43 L31,45.5 L28,47.5 L25,48.5 L22,47.5 L19,45.5 L16,43 L13,40 L10.5,36.5 L8.5,33 L7,29.5 L6,26.5 L5.5,25 L6,23.5 L7,20.5 L8.5,17 L10.5,13.5 L13,10 L16,7 L19,4.5 L22,2.5 Z"
-        fill="url(#crystalBase)"
-        stroke="#A599E9"
-        strokeWidth="0.5"
-        opacity="0.95"
-      />
-
-      {/* Top section - cyan */}
-      <path
-        d="M25,25 L25,2.5 L28,2.5 L26.5,20 L23.5,20 Z"
-        fill="url(#cyanCut)"
-      />
-
-      {/* Top-right - green */}
-      <path d="M25,25 L31,4.5 L34,7 L28,19 L25,16 Z" fill="url(#greenCut)" />
-
-      {/* Right-top - cyan */}
-      <path d="M25,25 L37,10 L39.5,13.5 L30,21 L27,18 Z" fill="url(#cyanCut)" />
-
-      {/* Right - green */}
-      <path
-        d="M25,25 L41.5,17 L43,20.5 L32,23 L32,27 Z"
-        fill="url(#greenCut)"
-      />
-
-      {/* Right-center - cyan */}
-      <path d="M25,25 L44,23.5 L44.5,25 L32,25 Z" fill="url(#cyanCut)" />
-
-      {/* Right-bottom - green */}
-      <path
-        d="M25,25 L43,29.5 L41.5,33 L32,27 L32,23 Z"
-        fill="url(#greenCut)"
-      />
-
-      {/* Bottom-right - cyan */}
-      <path d="M25,25 L39.5,36.5 L37,40 L30,29 L27,32 Z" fill="url(#cyanCut)" />
-
-      {/* Bottom - green */}
-      <path d="M25,25 L34,43 L31,45.5 L28,31 L25,34 Z" fill="url(#greenCut)" />
-
-      {/* Bottom-center - cyan */}
-      <path
-        d="M25,25 L25,47.5 L22,47.5 L23.5,30 L26.5,30 Z"
-        fill="url(#cyanCut)"
-      />
-
-      {/* Bottom-left - green */}
-      <path d="M25,25 L19,45.5 L16,43 L22,31 L25,34 Z" fill="url(#greenCut)" />
-
-      {/* Left-bottom - cyan */}
-      <path d="M25,25 L10.5,36.5 L13,40 L20,29 L23,32 Z" fill="url(#cyanCut)" />
-
-      {/* Left - green */}
-      <path d="M25,25 L8.5,33 L7,29.5 L18,27 L18,23 Z" fill="url(#greenCut)" />
-
-      {/* Left-center - cyan */}
-      <path d="M25,25 L6,23.5 L5.5,25 L18,25 Z" fill="url(#cyanCut)" />
-
-      {/* Left-top - green */}
-      <path d="M25,25 L7,20.5 L8.5,17 L18,23 L18,27 Z" fill="url(#greenCut)" />
-
-      {/* Top-left - cyan */}
-      <path d="M25,25 L10.5,13.5 L13,10 L20,21 L23,18 Z" fill="url(#cyanCut)" />
-
-      {/* Top-left corner - green */}
-      <path d="M25,25 L16,7 L19,4.5 L22,19 L25,16 Z" fill="url(#greenCut)" />
-
-      {/* Central 5-pointed star */}
-      <path
-        d="M25,15.5 L27.5,20.8 L33.2,20.8 L28.85,24.6 L31.35,29.9 L25,26.1 L18.65,29.9 L21.15,24.6 L16.8,20.8 L22.5,20.8 Z"
-        fill="url(#goldStar)"
-        stroke="#FFD700"
-        strokeWidth="0.3"
-      />
-    </svg>
+      className="flex-shrink-0"
+    />
   );
 }
