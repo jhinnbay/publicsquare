@@ -11,75 +11,127 @@ export function PixelIcon() {
     >
       <defs>
         <radialGradient id="backgroundGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#E6E6FA" />
-          <stop offset="100%" stopColor="#B19CD9" />
+          <stop offset="0%" stopColor="#E8E4FF" />
+          <stop offset="100%" stopColor="#B8A9FF" />
         </radialGradient>
-        <linearGradient id="cyanRay" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#40E0D0" />
-          <stop offset="100%" stopColor="#87CEEB" />
+        <linearGradient id="cyanRay" x1="50%" y1="50%" x2="100%" y2="0%">
+          <stop offset="20%" stopColor="#87CEEB" />
+          <stop offset="100%" stopColor="#00BFFF" />
         </linearGradient>
-        <linearGradient id="greenRay" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00FF7F" />
-          <stop offset="100%" stopColor="#90EE90" />
+        <linearGradient id="greenRay" x1="50%" y1="50%" x2="100%" y2="0%">
+          <stop offset="20%" stopColor="#98FB98" />
+          <stop offset="100%" stopColor="#32CD32" />
         </linearGradient>
-        <radialGradient id="starGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFFF00" />
-          <stop offset="70%" stopColor="#FFD700" />
+        <radialGradient id="starCenter" cx="50%" cy="50%" r="40%">
+          <stop offset="0%" stopColor="#FFFF4D" />
+          <stop offset="60%" stopColor="#FFD700" />
           <stop offset="100%" stopColor="#FFA500" />
         </radialGradient>
       </defs>
 
-      {/* Dodecagonal background */}
+      {/* Outer dodecagonal crystal shape */}
       <path
-        d="M25,2 L35,6 L43,14 L47,25 L43,36 L35,44 L25,48 L15,44 L7,36 L3,25 L7,14 L15,6 Z"
+        d="M25,1 L32,4 L39,11 L42,18 L46,25 L42,32 L39,39 L32,46 L25,49 L18,46 L11,39 L8,32 L4,25 L8,18 L11,11 L18,4 Z"
         fill="url(#backgroundGradient)"
-        stroke="#B19CD9"
-        strokeWidth="1"
+        stroke="#A594D9"
+        strokeWidth="1.5"
+        opacity="0.9"
       />
 
-      {/* Top ray (cyan) */}
-      <path d="M25,25 L25,2 L28,18 Z" fill="url(#cyanRay)" opacity="0.8" />
-
-      {/* Top-right ray (green) */}
-      <path d="M25,25 L35,6 L30,20 Z" fill="url(#greenRay)" opacity="0.8" />
-
-      {/* Right-top ray (cyan) */}
-      <path d="M25,25 L43,14 L32,22 Z" fill="url(#cyanRay)" opacity="0.8" />
-
-      {/* Right ray (green) */}
-      <path d="M25,25 L47,25 L32,25 Z" fill="url(#greenRay)" opacity="0.8" />
-
-      {/* Right-bottom ray (cyan) */}
-      <path d="M25,25 L43,36 L32,28 Z" fill="url(#cyanRay)" opacity="0.8" />
-
-      {/* Bottom-right ray (green) */}
-      <path d="M25,25 L35,44 L30,30 Z" fill="url(#greenRay)" opacity="0.8" />
-
-      {/* Bottom ray (cyan) */}
-      <path d="M25,25 L25,48 L22,32 Z" fill="url(#cyanRay)" opacity="0.8" />
-
-      {/* Bottom-left ray (green) */}
-      <path d="M25,25 L15,44 L20,30 Z" fill="url(#greenRay)" opacity="0.8" />
-
-      {/* Left-bottom ray (cyan) */}
-      <path d="M25,25 L7,36 L18,28 Z" fill="url(#cyanRay)" opacity="0.8" />
-
-      {/* Left ray (green) */}
-      <path d="M25,25 L3,25 L18,25 Z" fill="url(#greenRay)" opacity="0.8" />
-
-      {/* Left-top ray (cyan) */}
-      <path d="M25,25 L7,14 L18,22 Z" fill="url(#cyanRay)" opacity="0.8" />
-
-      {/* Top-left ray (green) */}
-      <path d="M25,25 L15,6 L20,20 Z" fill="url(#greenRay)" opacity="0.8" />
-
-      {/* Central yellow star */}
+      {/* 12 alternating rays - cyan (main directions) */}
       <path
-        d="M25,17 L26.8,21.2 L31.5,21.2 L27.85,24.3 L29.65,28.5 L25,25.4 L20.35,28.5 L22.15,24.3 L18.5,21.2 L23.2,21.2 Z"
-        fill="url(#starGradient)"
-        stroke="#FFD700"
-        strokeWidth="0.3"
+        d="M25,25 L25,4 L27,20 L23,20 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
       />
+      <path
+        d="M25,25 L39,11 L30,22 L28,18 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L46,25 L30,27 L30,23 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L39,39 L30,28 L28,32 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L25,46 L23,30 L27,30 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L11,39 L20,28 L22,32 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L4,25 L20,23 L20,27 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L11,11 L20,22 L22,18 Z"
+        fill="url(#cyanRay)"
+        opacity="0.85"
+      />
+
+      {/* 4 alternating rays - green (diagonal directions) */}
+      <path
+        d="M25,25 L32,4 L29,19 L26,17 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L42,18 L31,24 L29,21 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L42,32 L31,26 L29,29 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L32,46 L29,31 L26,33 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L18,46 L21,31 L24,33 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L8,32 L19,26 L21,29 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L8,18 L19,24 L21,21 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+      <path
+        d="M25,25 L18,4 L21,19 L24,17 Z"
+        fill="url(#greenRay)"
+        opacity="0.85"
+      />
+
+      {/* Central 5-pointed star */}
+      <path
+        d="M25,16 L26.9,21.1 L32.4,21.1 L28.25,24.4 L30.15,29.5 L25,26.2 L19.85,29.5 L21.75,24.4 L17.6,21.1 L23.1,21.1 Z"
+        fill="url(#starCenter)"
+        stroke="#FFD700"
+        strokeWidth="0.5"
+      />
+
+      {/* Inner highlight on star */}
+      <circle cx="25" cy="22.5" r="2" fill="#FFFF99" opacity="0.8" />
     </svg>
   );
 }
