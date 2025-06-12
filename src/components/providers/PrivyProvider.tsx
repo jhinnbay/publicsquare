@@ -1,43 +1,7 @@
 import React from "react";
-import { PrivyProvider as BasePrivyProvider } from "@privy-io/react-auth";
 
 interface PrivyProviderProps {
   children: React.ReactNode;
-}
-
-// Mock context for development when Privy is not configured
-const MockPrivyContext = React.createContext({
-  ready: true,
-  authenticated: false,
-  user: null,
-  login: async () => {},
-  logout: async () => {},
-  linkWallet: async () => {},
-  unlinkWallet: async () => {},
-  createWallet: async () => {},
-});
-
-function MockPrivyProvider({ children }: PrivyProviderProps) {
-  return (
-    <MockPrivyContext.Provider
-      value={{
-        ready: true,
-        authenticated: false,
-        user: null,
-        login: async () => {
-          console.warn(
-            "Privy not configured. Please set VITE_PRIVY_APP_ID environment variable.",
-          );
-        },
-        logout: async () => {},
-        linkWallet: async () => {},
-        unlinkWallet: async () => {},
-        createWallet: async () => {},
-      }}
-    >
-      {children}
-    </MockPrivyContext.Provider>
-  );
 }
 
 export function PrivyProvider({ children }: PrivyProviderProps) {
@@ -50,17 +14,20 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
     privyAppId.startsWith("clp") &&
     privyAppId.length > 10;
 
-  // If no valid app ID, use mock provider for development
+  // If no valid app ID, just return children without Privy wrapper
   if (!isValidAppId) {
     console.warn(
-      "⚠️ Privy not configured properly. Using mock provider for development.\n" +
+      "⚠️ Privy not configured properly. Running in development mode.\n" +
         "To enable wallet functionality:\n" +
         "1. Sign up at https://privy.io/\n" +
         "2. Create a new app\n" +
         "3. Add VITE_PRIVY_APP_ID=your-app-id to your .env file",
     );
-    return <MockPrivyProvider>{children}</MockPrivyProvider>;
+    return <>{children}</>;
   }
+
+  // Only import Privy when we have a valid app ID
+  const { PrivyProvider: BasePrivyProvider } = require("@privy-io/react-auth");
 
   return (
     <BasePrivyProvider
