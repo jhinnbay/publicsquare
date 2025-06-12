@@ -10,158 +10,62 @@ export function PixelIcon() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <radialGradient id="starGradient" cx="50%" cy="50%" r="50%">
+        <radialGradient id="backgroundGradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#E6E6FA" />
+          <stop offset="80%" stopColor="#D8BFD8" />
+          <stop offset="100%" stopColor="#C8A2C8" />
+        </radialGradient>
+        <linearGradient id="cyanRay" x1="50%" y1="50%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#87CEEB" />
+          <stop offset="100%" stopColor="#00FFFF" />
+        </linearGradient>
+        <linearGradient id="greenRay" x1="50%" y1="50%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#98FB98" />
+          <stop offset="100%" stopColor="#00FF7F" />
+        </linearGradient>
+        <radialGradient id="centerStar" cx="50%" cy="50%" r="40%">
           <stop offset="0%" stopColor="#FFD700" />
-          <stop offset="30%" stopColor="#FFA500" />
+          <stop offset="70%" stopColor="#FFA500" />
           <stop offset="100%" stopColor="#FF8C00" />
         </radialGradient>
-        <linearGradient id="rayGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00FFFF" />
-          <stop offset="100%" stopColor="#87CEEB" />
-        </linearGradient>
-        <linearGradient id="rayGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00FF7F" />
-          <stop offset="100%" stopColor="#90EE90" />
-        </linearGradient>
       </defs>
 
-      {/* Outer border/container */}
-      <polygon
-        points="25,2 32,8 42,6 40,16 48,20 40,24 42,34 32,32 25,38 18,32 8,34 10,24 2,20 10,16 8,6 18,8"
-        fill="#E6E6FA"
-        stroke="#D8BFD8"
-        strokeWidth="1"
-        opacity="0.8"
+      {/* Circular background */}
+      <circle
+        cx="25"
+        cy="25"
+        r="24"
+        fill="url(#backgroundGradient)"
+        opacity="0.9"
       />
 
-      {/* Alternating rays - cyan/blue */}
-      <polygon
-        points="25,25 25,5 28,12"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 35,10 32,15"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 40,15 37,20"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 45,25 38,25"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 40,35 37,30"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 35,40 32,35"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 25,45 22,38"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 15,40 18,35"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 10,35 13,30"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 5,25 12,25"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 10,15 13,20"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 15,10 18,15"
-        fill="url(#rayGradient1)"
-        opacity="0.7"
-      />
+      {/* Radiating rays - cyan/blue set */}
+      <path d="M25,25 L25,3 L27,15 Z" fill="url(#cyanRay)" opacity="0.8" />
+      <path d="M25,25 L38,7 L32,17 Z" fill="url(#cyanRay)" opacity="0.8" />
+      <path d="M25,25 L47,25 L35,25 Z" fill="url(#cyanRay)" opacity="0.8" />
+      <path d="M25,25 L38,43 L32,33 Z" fill="url(#cyanRay)" opacity="0.8" />
+      <path d="M25,25 L25,47 L23,35 Z" fill="url(#cyanRay)" opacity="0.8" />
+      <path d="M25,25 L12,43 L18,33 Z" fill="url(#cyanRay)" opacity="0.8" />
+      <path d="M25,25 L3,25 L15,25 Z" fill="url(#cyanRay)" opacity="0.8" />
+      <path d="M25,25 L12,7 L18,17 Z" fill="url(#cyanRay)" opacity="0.8" />
 
-      {/* Alternating rays - green */}
-      <polygon
-        points="25,25 30,7 27,13"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 38,12 35,17"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 43,20 40,23"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 43,30 40,27"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 38,38 35,33"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 30,43 27,37"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 20,43 23,37"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 12,38 15,33"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 7,30 10,27"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 7,20 10,23"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 12,12 15,17"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
-      <polygon
-        points="25,25 20,7 23,13"
-        fill="url(#rayGradient2)"
-        opacity="0.7"
-      />
+      {/* Radiating rays - green set (offset) */}
+      <path d="M25,25 L31,5 L29,16 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L45,12 L34,20 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L45,31 L34,27 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L45,38 L34,30 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L31,45 L29,34 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L19,45 L21,34 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L5,38 L16,30 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L5,31 L16,27 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L5,19 L16,23 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L5,12 L16,20 Z" fill="url(#greenRay)" opacity="0.8" />
+      <path d="M25,25 L19,5 L21,16 Z" fill="url(#greenRay)" opacity="0.8" />
 
       {/* Central star */}
-      <polygon
-        points="25,15 27,21 33,21 28,25 30,31 25,27 20,31 22,25 17,21 23,21"
-        fill="url(#starGradient)"
+      <path
+        d="M25,18 L26.5,22.5 L31,22.5 L27.75,25.25 L29.25,29.75 L25,27 L20.75,29.75 L22.25,25.25 L19,22.5 L23.5,22.5 Z"
+        fill="url(#centerStar)"
         stroke="#FFD700"
         strokeWidth="0.5"
       />
