@@ -10,128 +10,146 @@ export function PixelIcon() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <radialGradient id="backgroundGradient" cx="50%" cy="50%" r="50%">
+        <radialGradient id="crystalBg" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#E8E4FF" />
-          <stop offset="100%" stopColor="#B8A9FF" />
+          <stop offset="80%" stopColor="#C8BFFF" />
+          <stop offset="100%" stopColor="#A89AFF" />
         </radialGradient>
-        <linearGradient id="cyanRay" x1="50%" y1="50%" x2="100%" y2="0%">
-          <stop offset="20%" stopColor="#87CEEB" />
-          <stop offset="100%" stopColor="#00BFFF" />
+        <linearGradient id="cyanFacet" x1="50%" y1="50%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#B0E0E6" />
+          <stop offset="100%" stopColor="#00CED1" />
         </linearGradient>
-        <linearGradient id="greenRay" x1="50%" y1="50%" x2="100%" y2="0%">
-          <stop offset="20%" stopColor="#98FB98" />
-          <stop offset="100%" stopColor="#32CD32" />
+        <linearGradient id="greenFacet" x1="50%" y1="50%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#B8FFB8" />
+          <stop offset="100%" stopColor="#00FF7F" />
         </linearGradient>
-        <radialGradient id="starCenter" cx="50%" cy="50%" r="40%">
-          <stop offset="0%" stopColor="#FFFF4D" />
-          <stop offset="60%" stopColor="#FFD700" />
+        <radialGradient id="yellowStar" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FFFF66" />
+          <stop offset="80%" stopColor="#FFD700" />
           <stop offset="100%" stopColor="#FFA500" />
         </radialGradient>
       </defs>
 
-      {/* Outer dodecagonal crystal shape */}
+      {/* Outer crystal border - 12-sided */}
       <path
-        d="M25,1 L32,4 L39,11 L42,18 L46,25 L42,32 L39,39 L32,46 L25,49 L18,46 L11,39 L8,32 L4,25 L8,18 L11,11 L18,4 Z"
-        fill="url(#backgroundGradient)"
-        stroke="#A594D9"
-        strokeWidth="1.5"
+        d="M25,2 L31,5 L37,8 L41,14 L44,20 L47,25 L44,30 L41,36 L37,42 L31,45 L25,48 L19,45 L13,42 L9,36 L6,30 L3,25 L6,20 L9,14 L13,8 L19,5 Z"
+        fill="url(#crystalBg)"
+        stroke="#9F8FFF"
+        strokeWidth="1"
+        opacity="0.95"
+      />
+
+      {/* Angular crystal facets - cyan */}
+      <path
+        d="M25,25 L25,5 L31,5 L28,18 Z"
+        fill="url(#cyanFacet)"
+        opacity="0.9"
+      />
+      <path
+        d="M25,25 L37,8 L41,14 L32,20 Z"
+        fill="url(#cyanFacet)"
+        opacity="0.9"
+      />
+      <path
+        d="M25,25 L47,25 L44,30 L32,27 Z"
+        fill="url(#cyanFacet)"
+        opacity="0.9"
+      />
+      <path
+        d="M25,25 L37,42 L31,45 L28,32 Z"
+        fill="url(#cyanFacet)"
+        opacity="0.9"
+      />
+      <path
+        d="M25,25 L25,45 L19,45 L22,32 Z"
+        fill="url(#cyanFacet)"
+        opacity="0.9"
+      />
+      <path
+        d="M25,25 L13,42 L9,36 L18,30 Z"
+        fill="url(#cyanFacet)"
+        opacity="0.9"
+      />
+      <path
+        d="M25,25 L3,25 L6,20 L18,23 Z"
+        fill="url(#cyanFacet)"
+        opacity="0.9"
+      />
+      <path
+        d="M25,25 L13,8 L19,5 L22,18 Z"
+        fill="url(#cyanFacet)"
         opacity="0.9"
       />
 
-      {/* 12 alternating rays - cyan (main directions) */}
+      {/* Angular crystal facets - green (alternating) */}
       <path
-        d="M25,25 L25,4 L27,20 L23,20 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
+        d="M25,25 L31,5 L37,8 L30,19 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L39,11 L30,22 L28,18 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
+        d="M25,25 L41,14 L44,20 L33,22 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L46,25 L30,27 L30,23 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
+        d="M25,25 L44,20 L47,25 L34,25 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L39,39 L30,28 L28,32 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
+        d="M25,25 L44,30 L41,36 L33,28 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L25,46 L23,30 L27,30 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
+        d="M25,25 L41,36 L37,42 L30,31 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L11,39 L20,28 L22,32 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
+        d="M25,25 L31,45 L25,45 L26,33 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L4,25 L20,23 L20,27 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
+        d="M25,25 L19,45 L13,42 L20,31 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L11,11 L20,22 L22,18 Z"
-        fill="url(#cyanRay)"
-        opacity="0.85"
-      />
-
-      {/* 4 alternating rays - green (diagonal directions) */}
-      <path
-        d="M25,25 L32,4 L29,19 L26,17 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
+        d="M25,25 L9,36 L6,30 L17,28 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L42,18 L31,24 L29,21 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
+        d="M25,25 L6,30 L3,25 L16,25 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L42,32 L31,26 L29,29 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
+        d="M25,25 L6,20 L9,14 L17,22 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L32,46 L29,31 L26,33 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
+        d="M25,25 L9,14 L13,8 L20,19 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
       <path
-        d="M25,25 L18,46 L21,31 L24,33 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
-      />
-      <path
-        d="M25,25 L8,32 L19,26 L21,29 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
-      />
-      <path
-        d="M25,25 L8,18 L19,24 L21,21 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
-      />
-      <path
-        d="M25,25 L18,4 L21,19 L24,17 Z"
-        fill="url(#greenRay)"
-        opacity="0.85"
+        d="M25,25 L19,5 L25,5 L24,17 Z"
+        fill="url(#greenFacet)"
+        opacity="0.9"
       />
 
       {/* Central 5-pointed star */}
       <path
-        d="M25,16 L26.9,21.1 L32.4,21.1 L28.25,24.4 L30.15,29.5 L25,26.2 L19.85,29.5 L21.75,24.4 L17.6,21.1 L23.1,21.1 Z"
-        fill="url(#starCenter)"
+        d="M25,17 L27,22 L32,22 L28.5,25.5 L30,30 L25,27.5 L20,30 L21.5,25.5 L18,22 L23,22 Z"
+        fill="url(#yellowStar)"
         stroke="#FFD700"
         strokeWidth="0.5"
       />
-
-      {/* Inner highlight on star */}
-      <circle cx="25" cy="22.5" r="2" fill="#FFFF99" opacity="0.8" />
     </svg>
   );
 }
