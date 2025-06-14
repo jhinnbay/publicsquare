@@ -17,12 +17,11 @@ interface ForumCardProps {
 
 export function ForumCard({ title, description, badge, icon }: ForumCardProps) {
   const [showAccessModal, setShowAccessModal] = useState(false);
-  const { hasAccess, isLoading, requirement, userTokenCount } = useNFTGating(title);
+  const { hasAccess, isLoading, requirement, userTokenCount } =
+    useNFTGating(title);
 
   const getBadgeClasses = () => {
-    const baseClasses = hasAccess
-      ? ""
-      : "opacity-75 grayscale";
+    const baseClasses = hasAccess ? "" : "opacity-75 grayscale";
 
     switch (badge.variant) {
       case "cyan":
@@ -44,9 +43,12 @@ export function ForumCard({ title, description, badge, icon }: ForumCardProps) {
     <>
       <div
         className={`flex h-[88px] px-8 py-2.5 justify-between items-center border border-[#6B7280] bg-[#111827] bg-blend-color-dodge w-full ${
-          !hasAccess ? "cursor-pointer hover:bg-[#1f2937] transition-colors" : ""
+          !hasAccess
+            ? "cursor-pointer hover:bg-[#1f2937] transition-colors"
+            : ""
         } ${!hasAccess ? "opacity-80" : ""}`}
         onClick={handleCardClick}
+      >
         <div className="flex items-center gap-2.5">
           {/* Icon */}
           {icon && <div className="flex-shrink-0">{icon}</div>}

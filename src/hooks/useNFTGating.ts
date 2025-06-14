@@ -115,21 +115,3 @@ async function simulateTokenBalanceCheck(
 
   return 0;
 }
-
-// Real implementation would look like this:
-/*
-async function checkTokenBalance(
-  address: string,
-  contractAddress: string,
-): Promise<number> {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const contract = new ethers.Contract(
-    contractAddress,
-    ['function balanceOf(address owner) view returns (uint256)'],
-    provider
-  );
-  
-  const balance = await contract.balanceOf(address);
-  return parseInt(balance.toString());
-}
-*/
