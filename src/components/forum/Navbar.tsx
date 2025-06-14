@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MessageCircle, Wallet } from "lucide-react";
+import { MessageCircle, List } from "lucide-react";
 import { ConnectWalletButton } from "./ConnectWalletButton";
 import { ForumRulesModal } from "./ForumRulesModal";
 import {
@@ -64,7 +64,7 @@ export function Navbar() {
                       onClick={() => setIsRulesModalOpen(true)}
                       className="flex w-[37px] h-[37px] p-2.5 justify-center items-center gap-2.5 rounded-xl border border-white bg-[#27BBFB] shadow-[0px_1px_10.4px_0px_rgba(46,44,166,0.40)] cursor-pointer hover:bg-[#27BBFB]/90 transition-colors"
                     >
-                      <Wallet className="w-5 h-5 text-white" />
+                      <List className="w-5 h-5 text-white" />
                     </div>
                   </TooltipTrigger>
                   <TooltipContent>
