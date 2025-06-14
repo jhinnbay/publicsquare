@@ -54,6 +54,9 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
             connectionOptions: "injectedOnly",
           },
         },
+        // WalletConnect configuration (if you have a project ID)
+        walletConnectCloudProjectId: import.meta.env
+          .VITE_WALLETCONNECT_PROJECT_ID,
         // Configure supported chains
         supportedChains: [
           {
