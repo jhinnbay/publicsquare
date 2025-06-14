@@ -43,6 +43,17 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
         embeddedWallets: {
           createOnLogin: "users-without-wallets",
         },
+        // Configure external wallets
+        externalWallets: {
+          coinbaseWallet: {
+            // Connection options for Coinbase Wallet
+            connectionOptions: "smartWalletOnly",
+          },
+          metamask: {
+            // Connection options for MetaMask
+            connectionOptions: "injectedOnly",
+          },
+        },
         // Configure supported chains
         supportedChains: [
           {
