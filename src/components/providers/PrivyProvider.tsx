@@ -32,7 +32,7 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
       appId={privyAppId}
       config={{
         // Display email and wallet as login methods
-        loginMethods: ["email", "wallet", "sms"],
+        loginMethods: ["email", "wallet"],
         // Customize Privy's appearance in your app
         appearance: {
           theme: "dark",
@@ -43,20 +43,17 @@ export function PrivyProvider({ children }: PrivyProviderProps) {
         embeddedWallets: {
           createOnLogin: "users-without-wallets",
         },
-        // Configure external wallets
+        // Configure external wallets - simplified to avoid WalletConnect issues
         externalWallets: {
           coinbaseWallet: {
-            // Connection options for Coinbase Wallet
             connectionOptions: "smartWalletOnly",
           },
           metamask: {
-            // Connection options for MetaMask
             connectionOptions: "injectedOnly",
           },
         },
-        // WalletConnect configuration (if you have a project ID)
-        walletConnectCloudProjectId: import.meta.env
-          .VITE_WALLETCONNECT_PROJECT_ID,
+        // Disable WalletConnect for now to avoid domain issues
+        walletConnectCloudProjectId: undefined,
         // Configure supported chains
         supportedChains: [
           {
